@@ -1,0 +1,14 @@
+from boxsdk import JWTAuth
+from boxsdk import Client
+import io
+import pandas as pd
+import chardet # for checking char type
+
+# Configure JWT auth object
+sdk = JWTAuth.from_settings_file('config/box_config.json')
+# Get auth client
+client = Client(sdk)
+
+s = client.file(file.id).content()
+print(chardet.detect(open(s, 'rb').read())['encoding']) # gives char type
+outputDF = pd.read_excel(io.StringIO(s.decode('utf-8')))
