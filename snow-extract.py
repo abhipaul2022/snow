@@ -1,3 +1,4 @@
+import os as os
 import pandas as pd
 from openpyxl import load_workbook
 import openpyxl as pxl
@@ -10,7 +11,7 @@ print('*************************')
 print("Reading Parameter File......,")    
 df=pd.read_excel("Parameters File.xlsx",sheet_name='Daily Tickets')
 df0=pd.read_excel("Parameters File.xlsx",sheet_name='FPaths')
-xpath=df0["Path"][0]
+xpath=os.getcwd()+df0["Path"][0]
 
 
 for f in range(len(df)):
