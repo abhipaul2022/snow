@@ -1,4 +1,3 @@
-import os as os
 import pandas as pd
 from openpyxl import load_workbook
 import openpyxl as pxl
@@ -11,12 +10,12 @@ print('*************************')
 print("Reading Parameter File......,")    
 df=pd.read_excel("Parameters File.xlsx",sheet_name='Daily Tickets')
 df0=pd.read_excel("Parameters File.xlsx",sheet_name='FPaths')
-xpath=os.getcwd()+df0["Path"][0]
+
 
 
 for f in range(len(df)):
   if df['Completed(Y/N)'][f]=='N':
-    filename=xpath+'\\'+df["File Name"][f]+'.xlsx'
+    filename=df["File Name"][f]+'.xlsx'
     print("Processing ",filename)  
     df1=pd.read_excel(filename,sheet_name=' Incident')
     df1['Dummy']= pd.to_datetime(df1['Updated']).dt.date
