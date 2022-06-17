@@ -1,1 +1,0 @@
-python C:\Users\ABHIJITPAUL\Desktop\Python\snow-extract.py
